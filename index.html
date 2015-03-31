@@ -1,78 +1,139 @@
+<!doctype html>
+<!-- The DOCTYPE declaration above will set the     -->
+<!-- browser's rendering engine into                -->
+<!-- "Standards Mode". Replacing this declaration   -->
+<!-- with a "Quirks Mode" doctype is not supported. -->
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Canvas Paint - Example 5</title>
-    <style type="text/css">
-      #container { position: relative; }
-      #imageView { position: absolute; border: 1px solid #000; }
-      #imageTemp { position: absolute; top: 1px; left: 1px; }
-    </style>
-     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
-      <script type="text/javascript" src="simplejs.js"></script>
-  </head>
-  <body>
-  <h1 style="text-align:center; font:'Gill Sans'"> Up In The Air </h1>
-    <p style="text-align:center">
-    <label>Drawing tool: <select id="dtool">
-        <option value="line">Line</option>
-        <option value="rect">Rectangle</option>
-        <option value="pencil">Pencil</option>
-        <option value="circle">Circle</option>
-        <option value="ellipse">Ellipse</option>
-         <option value="erase">Eraser</option>
-    </select></label>
-    
-    
-   Line width : <select id="selWidth">
-            <option value="1">1</option>
-            <option value="3">3</option>
-            <option value="5">5</option>
-            <option value="7">7</option>
-            <option value="9" selected="selected">9</option>
-            <option value="11">11</option>
-            <option value="16">32</option>
-        </select> 
-        
-        Eraser width : <select id="eraseWidth">
-            <option value="6">Small</option>
-            <option value="10">Medium</option>
-            <option value="17">Large</option>
-            <option value="25">Extra Large</option>
-        </select>
-        Color : <select id="selColor">
-            <option value="black">black</option>
-            <option value="blue" selected="selected">blue</option>
-            <option value="red">red</option>
-            <option value="green">green</option>
-            <option value="yellow">yellow</option>
-            <option value="gray">gray</option>
-        </select>
-        Background Color : <select id="backColour">
-            <option value="black">black</option>
-            <option value="blue" selected="selected">blue</option>
-            <option value="red">red</option>
-            <option value="green">green</option>
-            <option value="yellow">yellow</option>
-            <option value="gray">gray</option>
-        </select>
-        </p>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-    <div id="container" style="margin-left: auto; margin-right: auto; width: 1000px;">
-      <canvas id="imageView" width="1000" height="600" >
+<!--                                                               -->
+<!-- Consider inlining CSS to reduce the number of requested files -->
+<!--                                                               -->
+<link type="text/css" rel="stylesheet" href="Paint_App.css">
+
+<!--                                           -->
+<!-- Any title is fine                         -->
+<!--                                           -->
+<title>Web Application Starter Project</title>
+
+<!--                                           -->
+<!-- This script loads your compiled module.   -->
+<!-- If you add any GWT meta tags, they must   -->
+<!-- be added before this line.                -->
+<!--                                           -->
+<script type="text/javascript" language="javascript"
+	src="paint_app/paint_app.nocache.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css" />
+
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="simplejs.js">
+	
+</script>
+
+<style type="text/css">
+#container {
+	position: relative;
+}
+
+#imageView {
+	position: absolute;
+	border: 1px solid #000;
+}
+
+#imageTemp {
+	position: absolute;
+	top: 1px;
+	left: 1px;
+}
+</style>
+
+</head>
+
+<!--                                           -->
+<!-- The body can have arbitrary html, or      -->
+<!-- you can leave the body empty if you want  -->
+<!-- to create a completely dynamic UI.        -->
+<!--                                           -->
+<body>
+
+	<!-- OPTIONAL: include this if you want history support -->
+	<iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1'
+		style="position: absolute; width: 0; height: 0; border: 0"></iframe>
+
+	<!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+	<noscript>
+		<div
+			style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+			Your web browser must have JavaScript enabled in order for this
+			application to display correctly.</div>
+	</noscript>
+
+	<h1 style="text-align: center; font: 'Gill Sans'">Up In The Air</h1>
+	<p style="text-align: center">
+		<label>Drawing tool: <select id="dtool">
+				<option value="line">Line</option>
+				<option value="rect">Rectangle</option>
+				<option value="pencil">Pencil</option>
+				<option value="circle">Circle</option>
+				<option value="ellipse">Ellipse</option>
+				<option value="erase">Eraser</option>
+		</select></label> Line width : <select id="selWidth">
+			<option value="1">1</option>
+			<option value="3">3</option>
+			<option value="5">5</option>
+			<option value="7">7</option>
+			<option value="9" selected="selected">9</option>
+			<option value="11">11</option>
+			<option value="16">32</option>
+		</select> Eraser width : <select id="eraseWidth">
+			<option value="6">Small</option>
+			<option value="10">Medium</option>
+			<option value="17">Large</option>
+			<option value="25">Extra Large</option>
+		</select> Color : <select id="selColor">
+			<option value="black">black</option>
+			<option value="blue" selected="selected">blue</option>
+			<option value="red">red</option>
+			<option value="green">green</option>
+			<option value="yellow">yellow</option>
+			<option value="gray">gray</option>
+		</select>
+		</p>
+		<p style="text-align: center">
+<button type="button" onClick="imgBack()">Image</button> 
+<button type="button" onClick="imgWhite()">White</button>
+	</p>
+	<script>
+		function imgBack() {
+			document.getElementById('imageView').style.backgroundImage = "url('images/monaco.jpg')";
+		}
+	</script>
+
+	<script>
+		function imgWhite() {
+			document.getElementById('imageView').style.backgroundImage = "url('images/white.png')";
+		}
+	</script>
+
+	<div id="container"
+		style="margin-left: auto; margin-right: auto; width: 1000px;">
+		<canvas id="imageView" width="1000" height="600">
         <p>Unfortunately, your browser is currently unsupported by our web
         application.  We are sorry for the inconvenience. Please use one of the
         supported browsers listed below, or draw the image you want using an
         offline tool.</p>
         <p>Supported browsers: <a href="http://www.opera.com">Opera</a>, <a
-          href="http://www.mozilla.com">Firefox</a>, <a
-          href="http://www.apple.com/safari">Safari</a>, and <a
-          href="http://www.konqueror.org">Konqueror</a>.</p>
+					href="http://www.mozilla.com">Firefox</a>, <a
+					href="http://www.apple.com/safari">Safari</a>, and <a
+					href="http://www.konqueror.org">Konqueror</a>.</p>
       </canvas>
-</script>
-    </div>
 
-   
-  </body>
+	</div>
+
+
+</body>
 </html>
+
