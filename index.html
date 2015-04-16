@@ -8,30 +8,12 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-<!--                                                               -->
-<!-- Consider inlining CSS to reduce the number of requested files -->
-<!--                                                               -->
-<link type="text/css" rel="stylesheet" href="Paint_App.css">
+<title>Paint Application</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="simplejs.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="bootstrap.min.css">
 
-<!--                                           -->
-<!-- Any title is fine                         -->
-<!--                                           -->
-<title>Web Application Starter Project</title>
-
-<!--                                           -->
-<!-- This script loads your compiled module.   -->
-<!-- If you add any GWT meta tags, they must   -->
-<!-- be added before this line.                -->
-<!--                                           -->
-<script type="text/javascript" language="javascript"
-	src="paint_app/paint_app.nocache.js"></script>
-<link rel="stylesheet" type="text/css" href="style.css" />
-
-<script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="simplejs.js">
-	
-</script>
 
 <style type="text/css">
 #container {
@@ -52,16 +34,13 @@
 
 </head>
 
-<!--                                           -->
-<!-- The body can have arbitrary html, or      -->
-<!-- you can leave the body empty if you want  -->
-<!-- to create a completely dynamic UI.        -->
-<!--                                           -->
+                              
 <body>
 
-	<!-- OPTIONAL: include this if you want history support -->
-	<iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1'
-		style="position: absolute; width: 0; height: 0; border: 0"></iframe>
+
+<h1 style="text-align:center; color:white;"> Welcome to our Paint Application </h1>
+
+
 
 	<!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
 	<noscript>
@@ -71,16 +50,17 @@
 			application to display correctly.</div>
 	</noscript>
 
-	<h1 style="text-align: center; font: 'Gill Sans'">Up In The Air</h1>
-	<p style="text-align: center">
-		<label>Drawing tool: <select id="dtool">
+	
+    <p style="text-align:center; font-size:20px"> We have a number of options for you to choose from: </p>
+    <p style="text-align:center; font-size:20px">  
+    Drawing tool: <select id="dtool" class="form-control" style="width:100px">
 				<option value="line">Line</option>
 				<option value="rect">Rectangle</option>
 				<option value="pencil">Pencil</option>
 				<option value="circle">Circle</option>
-				<option value="ellipse">Ellipse</option>
+				<!--<option value="ellipse">Ellipse</option>-->
 				<option value="erase">Eraser</option>
-		</select></label> Line width : <select id="selWidth">
+		</select> Line width : <select id="selWidth" class="form-control" style="width:50px">
 			<option value="1">1</option>
 			<option value="3">3</option>
 			<option value="5">5</option>
@@ -88,39 +68,34 @@
 			<option value="9" selected="selected">9</option>
 			<option value="11">11</option>
 			<option value="16">32</option>
-		</select> Eraser width : <select id="eraseWidth">
+		</select> Eraser width : <select id="eraseWidth" class="form-control" style="width:120px">
 			<option value="6">Small</option>
 			<option value="10">Medium</option>
 			<option value="17">Large</option>
 			<option value="25">Extra Large</option>
-		</select> Color : <select id="selColor">
-			<option value="black">black</option>
-			<option value="blue" selected="selected">blue</option>
-			<option value="red">red</option>
-			<option value="green">green</option>
-			<option value="yellow">yellow</option>
-			<option value="gray">gray</option>
+		</select> Color : <select id="selColor" class="form-control" style="width:100px">
+			<option value="black">Black</option>
+			<option value="blue" selected="selected">Blue</option>
+			<option value="red">Red</option>
+			<option value="green">Green</option>
+			<option value="yellow">Yellow</option>
+			<option value="gray">Gray</option>
 		</select>
-		</p>
+        </p>
 		<p style="text-align: center">
-<button type="button" onClick="imgBack()">Image</button> 
-<button type="button" onClick="imgWhite()">White</button>
+		Change the Background Colour: 
+        <button type="button" class="btn btn-danger"  onClick="imgBackRed()">Red</button> 
+        <button type="button" class="btn" style="background-color:blue; color:white;" onClick="imgBackBlue()">Blue</button>
+        <button type="button" class="btn" style="background-color:black; color:white;" onClick="imgBackBlack()">Black</button>
+        <button type="button" class="btn" style="background-color:green; color:white;" onClick="imgBackGreen()">Green</button>
+        <button type="button" class="btn" style="background-color:white;" onClick="imgBackWhite()">White</button>
+        <button type="button" class="btn" onClick="clearCan()">Clear The Canvas</button>
 	</p>
-	<script>
-		function imgBack() {
-			document.getElementById('imageView').style.backgroundImage = "url('images/monaco.jpg')";
-		}
-	</script>
-
-	<script>
-		function imgWhite() {
-			document.getElementById('imageView').style.backgroundImage = "url('images/white.png')";
-		}
-	</script>
+	
 
 	<div id="container"
 		style="margin-left: auto; margin-right: auto; width: 1000px;">
-		<canvas id="imageView" width="1000" height="600">
+		<canvas id="imageView" width="1000" height="600" style="background-color:white;">
         <p>Unfortunately, your browser is currently unsupported by our web
         application.  We are sorry for the inconvenience. Please use one of the
         supported browsers listed below, or draw the image you want using an
