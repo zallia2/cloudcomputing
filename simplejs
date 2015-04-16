@@ -141,7 +141,7 @@ if (window.addEventListener) {
 							this.mousemove = function(ev) {
 								if (tool.started) {
 									context.lineTo(ev._x, ev._y);
-									context.lineWidth = $('#selWidth').val();
+									context.lineWidth = $('#selWidth').val(); 
 									context.lineJoin = 'round';
 									context.lineCap = 'round';
 									context.strokeStyle = $('#selColor').val();
@@ -211,9 +211,6 @@ if (window.addEventListener) {
 							var tool = this;
 							this.started = false;
 
-//context.fillStyle = $('#backColour').val();
-	//							context.fillRect(0,0,canvas.width, canvas.height)
-
 							this.mousedown = function(ev) {
 								tool.started = true;
 								tool.x0 = ev._x;
@@ -227,7 +224,6 @@ if (window.addEventListener) {
 
 								context.clearRect(0, 0, canvas.width,
 										canvas.height);
-											
 
 								context.beginPath();
 								context.moveTo(tool.x0, tool.y0);
@@ -301,7 +297,7 @@ if (window.addEventListener) {
 						};
 
 						// The ellipse tool
-						tools.ellipse = function() {
+						/*tools.ellipse = function() {
 							var tool = this;
 							this.started = false;
 
@@ -361,7 +357,7 @@ if (window.addEventListener) {
 								}
 								;
 							};
-						};
+						};*/
 
 						// The erase tool.
 						tools.erase = function() {
@@ -389,7 +385,7 @@ if (window.addEventListener) {
 									context.strokeStyle = 'rgb(255, 255, 255)';
 									context.globalCompositeOperation = 'copy';
 									context.fillStyle = 'rgba(255,0,0,0)';
-									context.strokeStyle = ("rgba(255,255,255,255)");
+									context.strokeStyle = "rgba(255,255,255,255)";
 									context.lineWidth = $('#eraseWidth').val();
 									context.stroke();
 								}
@@ -405,11 +401,36 @@ if (window.addEventListener) {
 							};
 						};
 
-
-		init();
-
-		}, false);
+						
+						init();
+					}, false);
+					
+					function clearCan() {
+							var c = document.getElementById("imageView");
+							var ctx = c.getContext("2d");
+							ctx.clearRect(0, 0, 1000, 600);	
+						}
+						
+					function imgBackRed() {
+			document.getElementById('imageView').style.backgroundColor = "red";
+		}
+	
+		function imgBackWhite() {
+			document.getElementById('imageView').style.backgroundColor = "white";
+		}
 }
+
+function imgBackBlue() {
+			document.getElementById('imageView').style.backgroundColor = "blue";
+		}
+		
+		function imgBackGreen() {
+			document.getElementById('imageView').style.backgroundColor = "green";
+		}
+		
+		function imgBackBlack() {
+			document.getElementById('imageView').style.backgroundColor = "black";
+		}
 
 // vim:set spell spl=en fo=wan1croql tw=80 ts=2 sw=2 sts=2 sta et ai cin
 // fenc=utf-8 ff=unix:
