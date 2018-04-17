@@ -1,0 +1,207 @@
+
+<!doctype html>
+<!-- The DOCTYPE declaration above will set the     -->
+<!-- browser's rendering engine into                -->
+<!-- "Standards Mode". Replacing this declaration   -->
+<!-- with a "Quirks Mode" doctype is not supported. -->
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<title>Paint Application</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="paintapp.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<style type="text/css">
+#container {
+	position: relative;
+}
+
+#imageView {
+	position: absolute;
+	border: 1px solid #000;
+}
+
+#imageTemp {
+	position: absolute;
+	top: 1px;
+	left: 1px;
+}
+</style>
+
+
+
+</head>
+
+
+<body>
+
+
+<h1 style="text-align:center; color:white;"> Welcome to our Paint Application </h1>
+
+
+
+	<!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
+
+
+
+    <p style="text-align:center; font-size:20px; color:black"> We have a number of options for you to choose from: </p>
+    <p style=" text-align:center;font-size:20px; color:black;float:left;margin-left:500px;">
+	
+
+		
+		
+
+		<select id="selWidth"  style="width:50px; display:none;" class="form-control" >
+			<option value="1">1</option>
+			<option value="3">3</option>
+			<option value="5">5</option>
+			<option value="7">7</option>
+			<option value="9" selected="selected">9</option>
+			<option value="11">11</option>
+			<option value="16">32</option>
+		</select>
+		
+			<div style="width:50px; border:ridge; background-color:white;float:left;">
+		
+			<a id="1" href="javascript:void(0)">	<div style="background-color:black;margin:5px;width:35px;height:1px;"></div> </a>
+			<a id="3" href="javascript:void(0)">	<div style="background-color:black;margin:5px;width:35px;height:2px;"></div>
+			<a id="5" href="javascript:void(0)">	<div style="background-color:black;margin:5px;width:35px;height:4px;"></div>
+			<a id="7" href="javascript:void(0)">	<div style="background-color:black;margin:5px;width:35px;height:5px;"></div>
+			<a id="9" href="javascript:void(0)">	<div style="background-color:black;margin:5px;width:35px;height:6px;"></div>
+			<a id="11" href="javascript:void(0)">	<div style="background-color:black;margin:5px;width:35px;height:8px;"></div>
+			<a id="16" href="javascript:void(0)">	<div style="background-color:black;margin:5px;width:35px;height:13px;"></div>
+		</div>
+	
+		
+		
+ <select id="selColor" class="form-control" style="width:100px; display:none; " >
+			<option value="black">Black</option>
+			<option value="blue" selected="selected">Blue</option>
+			<option value="red">Red</option>
+			<option value="green">Green</option>
+			<option value="yellow">Yellow</option>
+			<option value="gray">Gray</option>
+			<option value="orange">Orange</option>
+			<option value="brown">Brown</option>
+			<option value="cyan">Cyan</option>
+			<option value="indigo">Indigo</option>
+			<option value="khaki">Khaki</option>
+			<option value="white">White</option>
+			<option value="pink">Pink</option>
+			<option value="purple">Purple</option>
+			<option value="maroon">Maroon</option>
+			<option value="magenta">Magenta</option>
+			<option value="chocolate">Chocolate</option>
+			<option value="olive">Olive</option>
+		</select>
+		
+		
+		<div style="height:80px ; width:150px; border:ridge; background-color:white; float:left;">
+		
+	<a id="blue" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:blue; float:left;"></div> </a>
+	<a id="black" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:black; float:left;"></div> </a>
+	<a id="red" href="javascript:void(0)" style="color:white;">	     <div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:red; float:left;"></div> </a>
+	<a id="green" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:green; float:left;"></div> </a>
+	<a id="yellow" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:yellow; float:left;"></div> </a>
+	<a id="gray" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:grey; float:left;"></div> </a>
+	<a id="orange" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:orange; float:left;"></div> </a>
+	<a id="brown" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:brown; float:left;"></div> </a>
+	<a id="cyan" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:cyan; float:left;"></div> </a>
+	<a id="indigo" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:indigo; float:left;"></div> </a>
+	<a id="khaki" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:khaki; float:left;"></div> </a>
+	<a id="white" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:white; float:left;"></div> </a>
+	<a id="pink" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:pink; float:left;"></div> </a>
+	<a id="purple" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:purple; float:left;"></div> </a>
+	<a id="maroon" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:maroon; float:left;"></div> </a>
+	<a id="magenta" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:magenta; float:left;"></div> </a>
+	<a id="chocolate" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:chocolate; float:left;"></div> </a>
+	<a id="olive" href="javascript:void(0)" style="color:white;">	<div style="margin:2px; height:20px ; width:20px; border:ridge; background-color:olive; float:left;"></div> </a>
+		
+		</div>
+		
+		
+<span style="color:black;font-size:20px;">Eraser width : </span><select class="form-control" id="eraseWidth"  style="width:120px" >
+			<option value="6">Small</option>
+			<option value="10">Medium</option>
+			<option value="17">Large</option>
+			<option value="25">Extra Large</option>
+		</select> 
+        </p>
+
+		<br><br>
+		
+		<p style="text-align: center; font-size:20px;">
+
+		<span style="color:black">Change the Background Colour:</span>
+        <button type="button" class="btn btn-danger"  onClick="imgBackRed()">Red</button>
+        <button type="button" class="btn" style="background-color:blue; color:white;" onClick="imgBackBlue()">Blue</button>
+        <button type="button" class="btn" style="background-color:black; color:white;" onClick="imgBackBlack()">Black</button>
+        <button type="button" class="btn" style="background-color:green; color:white;" onClick="imgBackGreen()">Green</button>
+        <button type="button" class="btn" style="background-color:white;color:black;" onClick="imgBackWhite()">White</button>
+        <button type="button" class="btn" style="color:black"onClick="clearCan()">Clear The Canvas</button>
+	</p>
+
+	
+	
+	<div style="margin-left:60px;margin-top:50px;width:80px;float:left">
+	
+		
+		<span style="color:black;font-size:20px;">	Drawing tool:</span>
+			<br>
+	
+<select id="dtool" style="width:100px; display:none;" >
+				<option value="line">Line</option>
+				<option value="rect">Rectangle</option>
+				<option value="pencil">Pencil</option>
+				<option value="circle">Circle</option>
+				<option value="erase">Eraser</option>	
+		</select> 
+	
+	
+	<a class="btn btn-info btn-md" id="line">
+          <span class="glyphicon glyphicon-minus"></span></a>
+
+	<a  class="btn btn-info btn-md" id="rect">
+          <span class="glyphicon glyphicon-unchecked"></span></a>
+		  
+	<a  class="btn btn-info btn-md" id="circle">
+          <span class="glyphicon glyphicon-record"></span></a>
+		  
+	<a  class="btn btn-info btn-md" id="pencil">
+          <span class="glyphicon glyphicon-pencil"></span></a>
+
+	<a  class="btn btn-info btn-md" id="erase">
+          <span class="glyphicon glyphicon-erase"></span></a>
+		
+	
+		
+	
+	</div>
+	
+	<div id="container"
+		style="margin-left: auto; margin-right: auto; width: 1000px;">
+		<canvas id="imageView" width="1000" height="500" style="background-color:white;">
+        <p>Unfortunately, your browser is currently unsupported by our web
+        application.  We are sorry for the inconvenience. Please use one of the
+        supported browsers listed below, or draw the image you want using an
+        offline tool.</p>
+        <p>Supported browsers: <a href="http://www.opera.com">Opera</a>, <a
+					href="http://www.mozilla.com">Firefox</a>, <a
+					href="http://www.apple.com/safari">Safari</a>, and <a
+					href="http://www.konqueror.org">Konqueror</a>.</p>
+      </canvas>
+
+	</div>
+
+
+</body>
+</html>
